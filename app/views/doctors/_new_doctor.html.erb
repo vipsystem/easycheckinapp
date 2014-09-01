@@ -1,0 +1,22 @@
+<div id="new_doctor_form">
+	<div class="doctor_form_content">
+		<%= form_for doctor.new do |f| %>
+			<%= f.label :first_name %><br/>
+			<%= f.text_field :first_name, :size => 60 %><br/>
+			<%= f.label :last_name %><br/>
+			<%= f.text_field :last_name, :size => 60 %><br/>
+			<%= f.label :address %><br/>
+			<%= f.text_field :address, :size => 60 %><br/>
+			<%= f.label :city %><br/>
+			<%= f.text_field :city :size => 60 %><br/>
+			<%= f.label :state, "Open Space (small, medium, large)" %><br/>
+			<%= f.text_field :state, :size => 60 %><br/>
+			<%= f.label :zip_code, "doctoring Lot (true or false)" %><br/>
+			<%= f.text_field :zip_code, :size => 60 %><br/>
+			<%= f.label :telephone, "Restrooms (true or false)" %><br/>
+			<%= f.text_field :telephone, :size => 60 %><br/>
+			<%= f.submit class: "btn btn-large btn-primary"%>
+			<%= link_to 'Back', doctors_path, class: "btn btn-large btn-primary" %>
+		<% end %>
+	</div>
+</div>
