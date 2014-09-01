@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
-	def new
+	
+  def new
     if signed_in?
       redirect_to doctors_path
     end

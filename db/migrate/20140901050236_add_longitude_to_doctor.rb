@@ -1,4 +1,4 @@
-class AddLongitudeToDoctors < ActiveRecord::Migration
+class AddLongitudeToDoctor < ActiveRecord::Migration
   def change
   	add_column :doctors, :longitude, :float
 

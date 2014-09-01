@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-class UsersController < ApplicationController
 	before_action :find_user, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, except: [:new, :create]
   before_action :correct_user, except: [:new, :create]
@@ -31,7 +30,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         sign_in @user
-        format.html { redirect_to parks_path, notice: 'User was successfully created.' }
+        format.html { redirect_to doctors_path, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }

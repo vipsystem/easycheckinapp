@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-	has_many :parks
+	has_many :doctors
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(?:\.[a-z\d\-]+)*\.[a-z]+\z/i #creates constant
 	before_save { self.email = email.downcase} #before filter
 	validates :email, presence: true,

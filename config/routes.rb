@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
-  root 'sessions#new'
+  root 'home#index'
   resources :doctors, except: [:new]
   get 'doctors/map' => 'doctors#show'
   resources :sessions, only: [:create]
-  resources :users
-  get 'sign_up' => 'users#new', as: :sign_up
-  get 'signin' => "sessions#new", as: :sign_in
-  delete 'signout' => "sessions#destroy", as: :sign_out
+  resources :users 
+      get 'sign_up' => 'users#new', as: :sign_up
+      get 'signin' => "sessions#new", as: :sign_in
+      delete 'signout' => "sessions#destroy", as: :sign_out
+ 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

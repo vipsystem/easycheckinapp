@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
- before_action :check_user_login
+before_action :check_user_login
   
   def index
     if @current_user
@@ -8,3 +8,4 @@ class HomeController < ApplicationController
   end
   
 end
+

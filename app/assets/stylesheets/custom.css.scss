@@ -1,5 +1,16 @@
 /* Custom CSS Styling for Twitter Bootstrap */
 
+body {
+  padding-top: 60px;
+  background: url(/assets/hospital-background.jpg)no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Signika', sans-serif;
+  font-size: 16px;
+}
+
 html {
   overflow-y: scroll;
 }
@@ -81,3 +92,7 @@ p {
  .fc-header-title {
   font-size: 2.2em;
  }
+
+ .jumbotron {
+  margin: 80px;
+}

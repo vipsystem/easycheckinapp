@@ -1,0 +1,86 @@
+<div class="animated bounceInDown" id="index_logo">
+			<img id="logo" src="/assets/hospital-background.jpg">
+</div>
+<button data-toggle="modal" data-target="#newModal" class="btn btn-large btn-primary" id="add_doctor_button">Add New Doctor</button>
+<button data-toggle="modal" data-target="#randomModal" class="btn btn-large btn-primary" id="pick_doctor_button">Pick-a-Doctor</button>
+<%= button_to "Sign Out", sign_out_path, :method => "delete", class: "btn btn-large btn-primary", id: "sign_out_button"%>
+<%= button_to "Map Of doctors", doctors_map_path, :method => "get", class: "btn btn-large btn-primary", id: "map_button"%>
+<div class="modal fade" id="newModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Add New Doctor</h4>
+      </div>
+      <div class="modal-body">
+				<%= render 'new_doctor' %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div class="modal fade" id="randomModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Try This Doctor Today</h4>
+      </div>
+      <div class="modal-body">
+				<%= render 'random' %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<hr/>
+
+<div id="index-wrapper">
+	<div id="columns">
+		<% @doctors.each do |doctor| %>
+
+			<div class="doctor">
+				<div><strong>First Name: </strong><%= doctor.first_name %></div>
+				<div><strong>Last Name: </strong><%= doctor.last_name %></div>
+				<div><strong>Address: </strong><%= doctor.address %></div>
+				<div><strong>City: </strong><%= doctor.city %></div>
+				<div><strong>State: </strong><%= doctor.state %></div>
+				<div><strong>Zip code: </strong><%= doctor.zip_code %></div>
+				<div><strong>Telephone: </strong><%= doctor.telephone %></div>
+				<hr/>
+				<button data-toggle="modal" data-target="#myModal<%= doctor.id %>" class="btn btn-primary">Details</button>
+			</div>
+			<div class="modal fade" id="myModal<%= doctor.id %>">
+			  <div class="modal-dialog">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+			        <h4 class="modal-title"><%= doctor.name %></h4>
+			      </div>
+			      <div class="modal-body">
+					<div><strong>Address: </strong><%= doctor.address %></div>
+					<div><strong>City: </strong><%= doctor.city %></div>
+					<div><strong>State: </strong><%= doctor.state %></div>
+					<div><strong>Zip code: </strong><%= doctor.zip_code %></div>
+					<div><strong>Telephone: </strong><%= doctor.telephone %></div>
+			      </div>
+			      <div class="modal-footer">
+			      	<div class="mod_foot_button">
+			      		<%= button_to "Edit doctor", edit_doctor_path(doctor), method: :get, class: "btn btn-primary"%>
+			      	</div>
+			      	<div class="mod_foot_button">
+			      		<%= button_to "Delete doctor", doctor, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning"%>
+			      	</div>
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			      </div>
+			    </div><!-- /.modal-content -->
+			  </div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
+		<% end %>
+	</div>
+</div>
+

@@ -12,4 +12,5 @@ class CreateDoctors < ActiveRecord::Migration
 
       t.timestamps
     end
+  end
 end
